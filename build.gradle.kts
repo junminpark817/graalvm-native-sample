@@ -32,11 +32,11 @@ graalvmNative {
         named("main") {
             imageName.set(appName)
             buildArgs.add("--initialize-at-build-time=CliProperties")
-            buildArgs.add("-H:ReflectionConfigurationFiles=../../resources/main/reflect-config.json")
             buildArgs.add("--enable-http")
             buildArgs.add("-R:MinHeapSize=500m")
             buildArgs.add("-R:MaxHeapSize=500m")
             systemProperties.put("appName", appName)
+            resources.autodetect()
         }
     }
 }

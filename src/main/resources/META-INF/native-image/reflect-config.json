@@ -1,0 +1,16 @@
+[
+  {
+    "name": "kotlin.reflect.jvm.internal.ReflectionFactoryImpl",
+    "allDeclaredConstructors": true
+  },
+  {
+    "name": "Model.SampleData",
+    "allDeclaredFields":true,
+    "allDeclaredConstructors":true
+  },
+  {
+    "name": "Model.SampleData$Data",
+    "allDeclaredFields":true,
+    "allDeclaredConstructors":true
+  }
+]

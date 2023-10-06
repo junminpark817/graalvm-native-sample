@@ -1,3 +1,4 @@
+import Model.SampleData
 import com.fasterxml.jackson.databind.DeserializationFeature
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.module.kotlin.readValue
@@ -12,9 +13,11 @@ val objectMapper: ObjectMapper = ObjectMapper()
 class PrintCommand() : Subcommand(name = "print", actionDescription = "print sample data") {
 
     override fun execute() {
-        val json = this.javaClass.classLoader.getResource("test.json")?.content.toString()
+        val json = checkNotNull(javaClass.getResource("META-INF/data.json")).readText()
         val sampleData = readValue<SampleData>(json)
-        println(sampleData.data)
+        sampleData.data.forEach {
+            println("key: ${it.key} -> value: ${it.value}")
+        }
     }
 }
 
