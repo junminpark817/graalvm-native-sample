@@ -1,3 +1,0 @@
-[EXECUTABLE]
-graalvm-native-sample
-
