@@ -1,3 +1,9 @@
+import java.net.URI
+import java.net.http.HttpRequest
+import java.net.http.HttpResponse
+import java.net.http.HttpClient
+import java.time.Duration.ofSeconds
+
 plugins {
     kotlin("jvm") version "1.8.0"
     id("org.graalvm.buildtools.native") version "0.9.27"
@@ -27,6 +33,9 @@ application {
 }
 
 val appName = "graalvm-native-sample"
+val filePath = "distributions/graalvm-native-sample.zip"
+val httpClient: HttpClient = HttpClient.newBuilder().connectTimeout(ofSeconds(10)).build()
+
 graalvmNative {
     binaries {
         named("main") {
@@ -39,4 +48,19 @@ graalvmNative {
             resources.autodetect()
         }
     }
+}
+
+tasks.register<Zip>("zipCli") {
+    archiveFileName.set("graalvm-native-sample.zip")
+    from("build/native/nativeCompile/graalvm-native-sample")
+}
+
+tasks.register("publish") {
+    val baseUrl = "artifactory-url"
+
+    val request = HttpRequest.newBuilder()
+        .uri(URI.create(baseUrl))
+        .PUT(HttpRequest.BodyPublishers.ofFile(layout.buildDirectory.file(filePath).get().asFile.toPath())).build()
+
+    httpClient.send(request, HttpResponse.BodyHandlers.discarding())
 }
