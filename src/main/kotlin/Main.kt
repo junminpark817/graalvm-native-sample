@@ -3,11 +3,11 @@ import kotlinx.cli.ArgParser
 import kotlin.system.exitProcess
 
 fun main(args: Array<String>) {
-    SymbolicatorClientApplication().execute(args)
+    NativeImageSampleApplication().execute(args)
     exitProcess(0)
 }
 
-class SymbolicatorClientApplication(
+class NativeImageSampleApplication(
 ) {
 
     fun execute(args: Array<String>) {
