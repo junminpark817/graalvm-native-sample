@@ -1,4 +1,4 @@
-package Model
+package model
 
 data class SampleData(
     val code: Int,

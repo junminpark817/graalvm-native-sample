@@ -1,4 +1,4 @@
-import Model.SampleData
+import model.SampleData
 import com.fasterxml.jackson.databind.DeserializationFeature
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.module.kotlin.readValue

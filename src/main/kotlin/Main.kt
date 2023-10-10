@@ -1,4 +1,4 @@
-import Property.CliProperties.APP_NAME
+import property.CliProperties.APP_NAME
 import kotlinx.cli.ArgParser
 import kotlin.system.exitProcess
 
