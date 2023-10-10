@@ -1,10 +1,8 @@
 import property.CliProperties.APP_NAME
 import kotlinx.cli.ArgParser
-import kotlin.system.exitProcess
 
 fun main(args: Array<String>) {
     NativeImageSampleApplication().execute(args)
-    exitProcess(0)
 }
 
 class NativeImageSampleApplication(

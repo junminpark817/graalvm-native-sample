@@ -4,12 +4,12 @@
     "allDeclaredConstructors": true
   },
   {
-    "name": "Model.SampleData",
+    "name": "model.SampleData",
     "allDeclaredFields":true,
     "allDeclaredConstructors":true
   },
   {
-    "name": "Model.SampleData$Data",
+    "name": "model.SampleData$Data",
     "allDeclaredFields":true,
     "allDeclaredConstructors":true
   }
