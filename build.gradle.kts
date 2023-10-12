@@ -10,7 +10,7 @@ plugins {
     application
 }
 
-group = "org.example"
+group = "com.navercorp"
 version = "1.0-SNAPSHOT"
 
 repositories {
@@ -20,7 +20,7 @@ repositories {
 dependencies {
     testImplementation(kotlin("test"))
     implementation("org.jetbrains.kotlinx:kotlinx-cli-jvm:0.3.6")
-    implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.13.4")
+    implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.14.2")
 
 }
 
@@ -40,7 +40,7 @@ graalvmNative {
     binaries {
         named("main") {
             imageName.set(appName)
-            buildArgs.add("--initialize-at-build-time=CliProperties")
+            buildArgs.add("--initialize-at-build-time=property.CliProperties")
             buildArgs.add("--enable-http")
             buildArgs.add("-R:MinHeapSize=500m")
             buildArgs.add("-R:MaxHeapSize=500m")
